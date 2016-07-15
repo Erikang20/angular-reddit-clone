@@ -52,9 +52,9 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     Sort By  <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Votes</a></li>
-                                    <li><a href="#">Date</a></li>
-                                    <li><a href="#">Title</a></li>
+                                    <li ng-click="sortBy('votes')"><a href="#">Votes</a></li>
+                                    <li ng-click="sortBy('date')"><a href="#">Date</a></li>
+                                    <li ng-click="sortBy('title')"><a href="#">Title</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -63,29 +63,72 @@
             </nav>
         </header>
 
-
-        <div ng-controller="redditClone as myClone">
-
+        <div ng-controller="redditClone as myClone" class="middle">
             <form name="userForm" novalidate>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" ng-model="clone.title" placeholder="Title" validate>
 
-                <label for="title">Title</label>
-                <input type="text" name="title" ng-model="clone.title" placeholder="Title">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" ng-model="clone.author" placeholder="Author" validate>
 
-                <label for="author">Author</label>
-                <input type="text" name="author" ng-model="clone.author" placeholder="Author">
+                    <label for="img">Image Url</label>
+                    <input type="text" name="img" ng-model="clone.img" placeholder="Image Url" validate>
 
-                <label for="img">Image Url</label>
-                <input type="text" name="img" ng-model="clone.img" placeholder="Image Url">
+                    <label for="description">Description</label>
+                    <input type="text" name="description" ng-model="clone.description" placeholder="Description" validate>
 
-                <label for="description">Description</label>
-                <input type="text" name="description" ng-model="clone.description" placeholder="Description">
 
-                <button ng-click="">Submit Post</button>
+                    <button ng-click="addPost()" class="btn btn-primary">Submit Post</button>
 
+                </div>
             </form>
+
+
+
             <div class="jumbotron">
 
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-02/19/10/campaign_images/webdr07/17-puppies-who-are-so-cute-they-will-make-you-mad-2-30501-1424359138-6_dblbig.jpg" alt="puppy">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Taco </h4>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{rightNow|date:"fullDate"}}</h3>
+                    <a><i class="fa fa-comment" aria-hidden="true"> Comments </i></a>
+                    <a><i class="fa fa-pencil" aria-hidden="true"> Add Comments</i></a>
+                </div>
 
+                <div ng-repeat="banana in posts">
+                    <h1><div class="title">
+                    <span class="sortorder" ng-show="propertyName==='title'">{{banana.title}}</span>
+                </div></h1>
+
+                    <div>
+                        <span>{{banana.author}}</span>
+
+                    </div>
+
+                    <div>
+                        <span>{{banana.img}}</span>
+
+                    </div>
+
+                    <div>
+                        <span>{{banana.description}}</span>
+                        <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{rightNow|date:"fullDate"}}</h3>
+                        <i class="fa fa-comment" aria-hidden="true"> Comments </i>
+                        <i class="fa fa-pencil" aria-hidden="true"> Add Comments</i>
+
+                    </div>
+                </div>
 
             </div>
         </div>
