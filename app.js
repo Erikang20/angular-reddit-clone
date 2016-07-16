@@ -52,7 +52,11 @@ app.controller( "redditClone", function( $scope ) {
 		$scope.posts.push( newPost );
 		console.log( $scope.posts );
 		console.log( "working here yo!" );
+
 	}
+
+
+
 
 	$scope.addComment = function() {
 		var newComment = {};

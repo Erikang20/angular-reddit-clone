@@ -7,3 +7,17 @@
   height: 100px;
   width: auto;
 }
+
+.my-form{
+  transition: all linear 0.5s;
+  background: transparent;
+}
+
+.error{
+  color: red;
+}
+
+a:link,a:hover, a:visited, a:active{
+  color: white;
+  text-decoration: none;
+}
