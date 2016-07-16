@@ -14,17 +14,26 @@ app.controller( "redditClone", function( $scope ) {
 	$scope.view.enterCount = 0;
 	$scope.view.enterCount2 = 0;
 	$scope.view.enterCount3 = 0;
-	$scope.post = [ {
-			author: 'Taco',
+
+
+	var post = [
+		{
 			title: 'puppies',
-			date: 07 / 16 / 2016
+			author: 'Taco',
+			img: "https://img.buzzfeed.com/buzzfeed-static/static/2015-02/19/10/campaign_images/webdr07/17-puppies-who-are-so-cute-they-will-make-you-mad-2-30501-1424359138-6_dblbig.jpg",
+			description: 'sunt in culpa qui officia deserunt mollit anim id est laborum jajhajdshhyuhfnadfuasdbuashdfuihsdkjnjsdbhs ',
+			date: 07 / 16 / 2016,
+			score: 9
 	},
 		{
-			author: 'Jack',
 			title: 'more puppies',
-			date: 04 / 14 / 206
-		} ];
-
+			author: 'Jack',
+			img: 'http://www.puppiesinflorida.com/wp-content/uploads/2016/07/Puppies_for_sale_in_florida.jpg',
+			description: 'sunt in culpa qui officia deserunt mollit anim id est laborum jajhajdshhyuhfnadfuasdbuashdfuihsdkjnjsdbhs ',
+			date: 04 / 14 / 206,
+			score: 10
+		}
+   ];
 
 
 	$scope.generate = function() {
