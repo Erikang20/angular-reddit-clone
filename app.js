@@ -6,6 +6,10 @@ app.controller( "redditClone", function( $scope ) {
 	$scope.rightNow = Date.now();
 	$scope.propertyName = 'title';
 	$scope.reverse = true;
+	$scope.view = {};
+	$scope.view.enterCount = 0;
+	$scope.view.enterCount2 = 0;
+
 
 
 	$scope.generate = function() {

@@ -91,10 +91,10 @@
                             <img class="media-object" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-02/19/10/campaign_images/webdr07/17-puppies-who-are-so-cute-they-will-make-you-mad-2-30501-1424359138-6_dblbig.jpg" alt="puppy">
                         </a>
                     </div>
-                    <div class="media-body">
+                    <div class="media-body" ng-model="view.enterCount">
                         <h2 class="media-heading">Taco </h2>
-                        <button><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                        <button><i class="fa fa-thumbs-down" aria-hidden="true"></i></button>
+                        <button ng-click="view.enterCount = view.enterCount + 1"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{view.enterCount}}</button>
+                        <button ng-click="view.enterCount2 = view.enterCount2 -1"><i class="fa fa-thumbs-down" aria-hidden="true"> {{view.enterCount2}}</i></button>
                     </div>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
