@@ -37,23 +37,25 @@
                         </div>
 
                         <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                            <!-- submit post button -->
                             <ul class="nav navbar-nav">
                                 <button ng-model="showMe" ng-click="generate()"><a href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Submit Post</a></button>
 
                             </ul>
                             <form class="navbar-form navbar-left" role="search">
+                                <!-- search by -->
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search">
+                                    <input type="text" class="form-control" placeholder="Search">{{searchPost}}
                                 </div>
                             </form>
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <a href="#" ng-click="sortType=''; sortReverse=!sortReverse" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     Sort By  <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li ng-click="sortBy('votes')"><a href="#">Votes</a></li>
-                                        <li ng-click="sortBy('date')"><a href="#">Date</a></li>
-                                        <li ng-click="sortBy('title')"><a href="#">Title</a></li>
+                                        <li ng-click="sortType==='vote'"><a href="#">vote</a></li>
+                                        <li ng-click="sortType==='date'"><a href="#">Date</a></li>
+                                        <li ng-click="sortType==='title'"><a href="#">Title</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -111,9 +113,9 @@
                     </div>
                 </div>
 
-                <div ng-repeat="post in posts">
+                <div ng-repeat="post in posts | orderBy:sortType:sortReverse">
                     <h1><div class="title">
-                    <span class="sortorder" ng-show="propertyName==='title'">{{post.title}}</span>
+                    <span class="sortType" ng-show="sortType==='title'" >{{post.title}}</span>
                 </div></h1>
 
                     <div>

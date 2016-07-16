@@ -3,7 +3,9 @@ var app = angular.module( "clone", [] );
 app.controller( "redditClone", function( $scope ) {
 	$scope.clone = {};
 	$scope.posts = [];
-	// $scope.comment = [];
+	$scope.sortType = 'title';
+	$scope.sortReverse = false;
+	$scope.searchPost = '';
 	$scope.comments = [];
 	$scope.rightNow = Date.now();
 	$scope.propertyName = 'title';
@@ -12,6 +14,17 @@ app.controller( "redditClone", function( $scope ) {
 	$scope.view.enterCount = 0;
 	$scope.view.enterCount2 = 0;
 	$scope.view.enterCount3 = 0;
+	$scope.post = [ {
+			author: 'Taco',
+			title: 'puppies',
+			date: 07 / 16 / 2016
+	},
+		{
+			author: 'Jack',
+			title: 'more puppies',
+			date: 04 / 14 / 206
+		} ];
+
 
 
 	$scope.generate = function() {
