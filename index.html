@@ -45,7 +45,11 @@
                             <form class="navbar-form navbar-left" role="search">
                                 <!-- search by -->
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search">{{searchPost}}
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-search"></i> </div>
+                                        <input type="text" class="form-control" placeholder="Search" ng-model="searchPost">
+                                    </div>
                                 </div>
                             </form>
                             <ul class="nav navbar-nav navbar-right">
@@ -56,6 +60,7 @@
                                         <li ng-click="sortType==='vote'"><a href="#">vote</a></li>
                                         <li ng-click="sortType==='date'"><a href="#">Date</a></li>
                                         <li ng-click="sortType==='title'"><a href="#">Title</a></li>
+
                                     </ul>
                                 </li>
                             </ul>
@@ -85,22 +90,17 @@
 
 
             <div class="jumbotron middle">
-
                 <div class="media">
                     <div class="media-left">
-                        <a href="#">
-                            <img class="media-object" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-02/19/10/campaign_images/webdr07/17-puppies-who-are-so-cute-they-will-make-you-mad-2-30501-1424359138-6_dblbig.jpg" alt="puppy">
-                        </a>
+                        <img class="media-object" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-02/19/10/campaign_images/webdr07/17-puppies-who-are-so-cute-they-will-make-you-mad-2-30501-1424359138-6_dblbig.jpg" alt="puppy">
                     </div>
                     <div class="media-body" ng-model="view.enterCount">
                         <h2 class="media-heading">Taco </h2>
                         <button ng-click="view.enterCount = view.enterCount + 1"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{view.enterCount}}</button>
                         <button ng-click="view.enterCount2 = view.enterCount2 -1"><i class="fa fa-thumbs-down" aria-hidden="true"> {{view.enterCount2}}</i></button>
                     </div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{rightNow|date:"fullDate"}}</h3>
                     <a ng-click="view.enterCount3"><i class="fa fa-comment" aria-hidden="true"> {{view.enterCount3}} Comments </i></a>
                     <a ng-click="addComment()"><i class="fa fa-pencil" aria-hidden="true"> Add Comments</i></a>
@@ -109,36 +109,35 @@
                         <input type="text" name="comment" ng-model="clone.comment" placeholder="comment" validate>
                         <span ng-show="">{{newComment.comment}}</span>
                         <button>Save</button>
-
                     </div>
                 </div>
+            </div>
 
-                <div ng-repeat="post in posts | orderBy:sortType:sortReverse">
-                    <h1><div class="title">
+            <div ng-repeat="post in posts | orderBy:sortType:sortReverse |filter:searchPost">
+                <h1><div class="title">
                     <span class="sortType" ng-show="sortType==='title'" >{{post.title}}</span>
                 </div></h1>
 
-                    <div>
-                        <span>{{post.author}}</span>
+                <div>
+                    <span>{{post.author}}</span>
 
-                    </div>
-
-                    <div>
-                        <span>{{post.img}}</span>
-
-                    </div>
-
-                    <div>
-                        <span>{{post.description}}</span>
-
-                        <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{rightNow|date:"fullDate"}}</h3>
-                        <i class="fa fa-comment" aria-hidden="true"> Comments </i>
-                        <i class="fa fa-pencil" aria-hidden="true"> Add Comments</i>
-
-                    </div>
                 </div>
 
+                <div>
+                    <span>{{post.img}}</span>
+
+                </div>
+
+                <div>
+                    <span>{{post.description}}</span>
+
+                    <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{rightNow|date:"fullDate"}}</h3>
+                    <i class="fa fa-comment" aria-hidden="true"> Comments </i>
+                    <i class="fa fa-pencil" aria-hidden="true"> Add Comments</i>
+
+                </div>
             </div>
+
         </div>
     </body>
 
