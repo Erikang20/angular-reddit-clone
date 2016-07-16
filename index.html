@@ -45,8 +45,8 @@
                                 <button class="btn btn-primary" ng-model="showMe" ng-click="generate()"><a href="#" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Submit Post</a></button>
 
                             </ul>
+                            <!-- search by -->
                             <form class="navbar-form navbar-left" role="search">
-                                <!-- search by -->
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -62,8 +62,8 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     Sort By  <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#" ng-click="sortReverse=!sortReverse">vote</a></li>
-                                        <li><a href="#" ng-click="sortReverse=!sortReverse">Date</a></li>
+                                        <li><a href="#" ng-click="sortType='view.enterCount'">vote</a></li>
+                                        <li><a href="#" ng-click="sortType='date'">Date</a></li>
                                         <li><a href="#" ng-click="sortReverse=!sortReverse">Title</a></li>
                                     </ul>
                                 </li>
@@ -80,30 +80,29 @@
             </header>
 
             <form name="userForm" ng-if="showMe" class="my-form">
-                <div class="form-group" required>
+
+                <div class="form-group">
                     <label for="title">Title: </label>
                     <input type="text" name="title" ng-model="clone.title" ng-minlength="3" placeholder="Title" required>
                     <span class="error" ng-show="userForm.title.$error.minlength">A Title is Required to be at least 3 characters</span>
 
                     <label for="author">Author</label>
                     <input type="text" name="author" ng-model="clone.author" placeholder="Author" required>
-                    <span class="error" ng-show="userForm.author.$error.required">An author is Required </span>
-
+                    <span class="error" ng-show="userForm.author.$error.required.$touched">An author is Required </span>
 
                     <label for="img">Image Url</label>
                     <input type="url" name="img" ng-model="clone.img" placeholder="Image Url" required>
-                    <span class="error" ng-show="userForm.img.$error.required">Please introduce a valid URL </span>
+                    <span class="error" ng-show="userForm.img.$error.required.$touched">Please introduce a valid URL </span>
 
 
                     <label for="description">Description</label>
                     <input type="text" name="description" ng-model="clone.description" ng-minlength="3" ng-maxlength="200" placeholder="Description" required>
-                    <span class="error" ng-show="userForm.description.$error.required">A description is Required </span>
+                    <span class="error" ng-show="userForm.description.$error.required.$touched">A description is Required </span>
                     <span class="error" ng-show="userForm.description.$error.minlength">A description has to be at least 3 characters </span>
                     <span class="error" ng-show="userForm.description.$error.maxlength">The description can't be longer than 200 characters </span>
-
                     <button ng-click="addPost()" class="btn btn-primary">Submit Post</button>
-
                 </div>
+
             </form>
 
             <div class="container">
@@ -113,7 +112,7 @@
                 </div></h3>
 
                     <div>
-                        <span>Created by: {{post.author}}</span>
+                        <span class="sortType">Created by: {{post.author}}</span>
 
                     </div>
 
@@ -130,7 +129,7 @@
                             <button ng-click="view.enterCount2 = view.enterCount2 -1"><i class="fa fa-thumbs-down" aria-hidden="true"> {{view.enterCount2}}</i></button>
                         </div>
 
-                        <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{rightNow|date:"fullDate"}}</h3>
+                        <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{date | date:"fullDate"}}</h3>
                         <a ng-click="view.enterCount3"><i class="fa fa-comment" aria-hidden="true"> {{view.enterCount3}} Comments </i></a>
                         <a ng-click="addComment()"><i class="fa fa-pencil" aria-hidden="true"> Add Comments</i></a>
 

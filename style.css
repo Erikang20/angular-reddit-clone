@@ -21,3 +21,7 @@ a:link,a:hover, a:visited, a:active{
   color: white;
   text-decoration: none;
 }
+.btn{
+  padding: 7px;
+  margin: 7px;
+}
