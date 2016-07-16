@@ -8,6 +8,12 @@ app.controller( "redditClone", function( $scope ) {
 	$scope.reverse = true;
 
 
+	$scope.generate = function() {
+		console.log( $scope.showMe );
+		$scope.showMe = !$scope.showMe;
+	};
+
+
 	$scope.addPost = function() {
 		var newPost = {};
 		newPost.title = $scope.clone.title;
@@ -24,5 +30,6 @@ app.controller( "redditClone", function( $scope ) {
 		$scope.reverse = ( $scope.propertyName === propertyName ) ? !$scope.reverse : false;
 		$scope.propertyName = propertyName;
 	}
+
 
 } );
