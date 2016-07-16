@@ -56,13 +56,15 @@
                                 </div>
                             </form>
                             <ul class="nav navbar-nav navbar-right">
+                                <!-- ng-click="sortReverse=!sortReverse" -->
+                                <!-- ; sortReverse=!sortReverse -->
                                 <li class="dropdown">
-                                    <a href="#" ng-click="sortType=''; sortReverse=!sortReverse" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     Sort By  <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#" ng-click="sortType='vote'">vote</a></li>
-                                        <li><a href="#" ng-click="sortType='date'">Date</a></li>
-                                        <li><a href="#" ng-click="sortType='title'">Title</a></li>
+                                        <li><a href="#" ng-click="sortReverse=!sortReverse">vote</a></li>
+                                        <li><a href="#" ng-click="sortReverse=!sortReverse">Date</a></li>
+                                        <li><a href="#" ng-click="sortReverse=!sortReverse">Title</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -97,45 +99,43 @@
             </form>
 
             <div class="container">
-                <div class="jumbotron middle">
-                    <div ng-repeat="post in posts | orderBy:sortType:sortReverse | filter:searchPost">
-                        <h3><div class="title">
+                <div class="jumbotron middle" ng-repeat="post in posts | orderBy:sortType:sortReverse | filter:searchPost">
+                    <h3><div class="title">
                     <span class="sortType" ng-show="sortType==='title'" >{{post.title}}</span>
                 </div></h3>
 
-                        <div>
-                            <span>Created by: {{post.author}}</span>
+                    <div>
+                        <span>Created by: {{post.author}}</span>
 
-                        </div>
-
-                        <div>
-                            <img ng-src="{{post.img}}">
-
-                        </div>
-
-                        <div>
-                            <span>{{post.description}}</span>
-
-                            <div class="media-body" ng-model="view.enterCount">
-                                <button ng-click="view.enterCount = view.enterCount + 1"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{view.enterCount}}</button>
-                                <button ng-click="view.enterCount2 = view.enterCount2 -1"><i class="fa fa-thumbs-down" aria-hidden="true"> {{view.enterCount2}}</i></button>
-                            </div>
-
-                            <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{rightNow|date:"fullDate"}}</h3>
-                            <a ng-click="view.enterCount3"><i class="fa fa-comment" aria-hidden="true"> {{view.enterCount3}} Comments </i></a>
-                            <a ng-click="addComment()"><i class="fa fa-pencil" aria-hidden="true"> Add Comments</i></a>
-
-                            <div ng-repeat="comment in comments">
-                                <label for="comment">Comments</label>
-                                <input type="text" name="comment" ng-model="clone.comment" placeholder="comment" validate>
-                                <span ng-show="">{{newComment.comment}}</span>
-                                <button>Save</button>
-                            </div>
-
-                        </div>
                     </div>
 
+                    <div>
+                        <img ng-src="{{post.img}}">
+
+                    </div>
+
+                    <div>
+                        <span>{{post.description}}</span>
+
+                        <div class="media-body" ng-model="view.enterCount">
+                            <button ng-click="view.enterCount = view.enterCount + 1"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{view.enterCount}}</button>
+                            <button ng-click="view.enterCount2 = view.enterCount2 -1"><i class="fa fa-thumbs-down" aria-hidden="true"> {{view.enterCount2}}</i></button>
+                        </div>
+
+                        <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{rightNow|date:"fullDate"}}</h3>
+                        <a ng-click="view.enterCount3"><i class="fa fa-comment" aria-hidden="true"> {{view.enterCount3}} Comments </i></a>
+                        <a ng-click="addComment()"><i class="fa fa-pencil" aria-hidden="true"> Add Comments</i></a>
+
+                        <div ng-repeat="comment in comments">
+                            <label for="comment">Comments</label>
+                            <input type="text" name="comment" ng-model="clone.comment" placeholder="comment" validate>
+                            <span ng-show="">{{newComment.comment}}</span>
+                            <button>Save</button>
+                        </div>
+
+                    </div>
                 </div>
+
             </div>
         </div>
     </body>
