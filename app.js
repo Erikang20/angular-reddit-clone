@@ -11,6 +11,7 @@ app.controller( "redditClone", function( $scope ) {
 	$scope.reverse = true;
 	$scope.view = {};
 	$scope.view.enterCount = 0;
+	$scope.clone.showComment = false;
 	$scope.post = {
 		title: '',
 		author: '',
@@ -61,11 +62,10 @@ app.controller( "redditClone", function( $scope ) {
 		console.log( "this is clean!" );
 	}
 
-	var cleanComm = function( comm ) {
+	var cleanComm = function() {
 		$scope.clone.commentBy = null;
 		$scope.clone.comment = null;
 		$scope.clone.otherComment = false;
-		$scope.clone.showComment = false;
 
 	}
 
@@ -86,12 +86,14 @@ app.controller( "redditClone", function( $scope ) {
 
 	$scope.addComment = function() {
 		var newComment = {};
+		newComment.commentBy = $scope.clone.commentBy;
 		newComment.comment = $scope.clone.comment;
 
 		$scope.comments.push( newComment );
 
 		console.log( $scope.comment );
 		console.log( "working there too" );
+		cleanComm();
 	}
 
 

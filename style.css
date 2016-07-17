@@ -27,3 +27,11 @@ a:link,a:hover, a:visited, a:active{
   padding: 7px;
   margin: 7px;
 }
+
+.fa-thumbs-up{
+  color:blue;
+}
+
+.fa-thumbs-down{
+  color:red;
+}

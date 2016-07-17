@@ -10,7 +10,6 @@
         <!-- angularjs -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.js"></script>
 
         <!-- jquery -->
         <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
@@ -123,18 +122,26 @@
                         </div>
                         <!-- display date -->
                         <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{date | date:"fullDate"}}</h3>
-                        <a ng-click="view.enterCount3"><i class="fa fa-comment" aria-hidden="true"> {{view.enterCount3}} Comments </i></a>
+                        <a ng-click="view.enterCount3"><i class="fa fa-comment" aria-hidden="true"> {{view.enterCount}} Comments </i></a>
                     </div>
                     <!-- new comment -->
-                    <form name="commentsForm" class="form-control" ng-if="showMe" ng-click="sortReverse=!sortReverse">
-                        <a ng-click="addComment()"><i class="fa fa-pencil" aria-hidden="true"> Add Comments</i></a>
-                        <label for="comment">Comments: </label>
-                        <input type="text" name="comment" ng-model="clone.comment" placeholder="comment" validate>
-                        <button ng-click="addComment()">Save</button>
-                    </form>
-                    <!-- display comments -->
-                    <div ng-repeat="comment in comments">
-                        <p><span>{{comment.comment}}</span></p>
+
+                    <!-- <button class="btn btn-primary" ng-model="showMe" ng-click="$scope.showComment = !$scope.showComment;"> Add Comment</button> -->
+
+                    <div>
+                        <form name="commentsForm" class="newComment" ng-if="showMe" novalidate>
+                            <a><i class="fa fa-pencil" aria-hidden="true"> Add Comments</i></a>
+                            <label for="comment">Comments: </label>
+                            <input type="text" class="form-control" name="commentBy" id="commentBy" ng-model="clone.commentBy" placeholder="Comment By" required>
+                            <input type="text" class="form-control" name="comment" id="comment" ng-model="clone.comment" placeholder="comment" required>
+
+                            <button ng-click="addComment()" type="submit">Add comment</button>
+                        </form>
+                        <!-- display comments -->
+                        <div ng-repeat="comment in comments">
+                            <p><span>{{comment.commentBy}}</span></p>
+                            <p><span>{{comment.comment}}</span></p>
+                        </div>
                     </div>
 
                 </div>
