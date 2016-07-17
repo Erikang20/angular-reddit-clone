@@ -11,6 +11,8 @@
 .my-form{
   transition: all linear 0.5s;
   background: transparent;
+  padding:20px;
+  margin:20px;
 }
 
 .error{

@@ -57,7 +57,6 @@
                             </form>
                             <ul class="nav navbar-nav navbar-right">
                                 <!-- ng-click="sortReverse=!sortReverse" -->
-                                <!-- ; sortReverse=!sortReverse -->
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     Sort By  <span class="caret"></span></a>
@@ -79,28 +78,29 @@
                 </nav>
             </header>
 
-            <form name="userForm" ng-if="showMe" class="my-form">
+            <!-- new Post form -->
+            <form name="userForm" ng-if="showMe" class="my-form" novalidate>
 
                 <div class="form-group">
                     <label for="title">Title: </label>
-                    <input type="text" name="title" ng-model="clone.title" ng-minlength="3" placeholder="Title" required>
-                    <span class="error" ng-show="userForm.title.$error.minlength">A Title is Required to be at least 3 characters</span>
+                    <span class="error" ng-show="userForm.title.$error.minlength" ng-class="{'has-error': userForm.title.$invalid && !userForm.title.$pristine, 'has-success': userForm.title.$valid}">A Title is Required to be at least 3 characters</span>
+                    <input type="text" class="form-control" name="title" id="title" ng-model="clone.title" ng-minlength="3" placeholder="Title" required>
 
                     <label for="author">Author</label>
-                    <input type="text" name="author" ng-model="clone.author" placeholder="Author" required>
                     <span class="error" ng-show="userForm.author.$error.required.$touched">An author is Required </span>
+                    <input type="text" class="form-control" name="author" id="author" ng-model="clone.author" placeholder="Author" required>
 
                     <label for="img">Image Url</label>
-                    <input type="url" name="img" ng-model="clone.img" placeholder="Image Url" required>
-                    <span class="error" ng-show="userForm.img.$error.required.$touched">Please introduce a valid URL </span>
+                    <span class="error" ng-show="userForm.img.$error.required.$touched ">Please introduce a valid URL </span>
+                    <input type="url" class="form-control" name="img" id="img" ng-model="clone.img" placeholder="Image Url" required>
 
 
                     <label for="description">Description</label>
-                    <input type="text" name="description" ng-model="clone.description" ng-minlength="3" ng-maxlength="200" placeholder="Description" required>
+                    <input type="text" class="form-control" name="description" id="description" ng-model="clone.description" ng-minlength="3" ng-maxlength="200" placeholder="Description" required>
                     <span class="error" ng-show="userForm.description.$error.required.$touched">A description is Required </span>
                     <span class="error" ng-show="userForm.description.$error.minlength">A description has to be at least 3 characters </span>
                     <span class="error" ng-show="userForm.description.$error.maxlength">The description can't be longer than 200 characters </span>
-                    <button ng-click="addPost()" class="btn btn-primary">Submit Post</button>
+                    <button ng-click="addPost()" class="btn btn-primary" type="submit" ng-disabled="userForm.$pristine">Submit Post</button>
                 </div>
 
             </form>
