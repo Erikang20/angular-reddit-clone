@@ -16,11 +16,10 @@ app.controller( "redditClone", function( $scope ) {
 
 
 
-	// function dummy() {
-	// 	var isThis = this;
+
 	$scope.clone.post = [
 		{
-			title: 'puppies',
+			title: 'Puppies',
 			author: 'Taco',
 			img: "https://img.buzzfeed.com/buzzfeed-static/static/2015-02/19/10/campaign_images/webdr07/17-puppies-who-are-so-cute-they-will-make-you-mad-2-30501-1424359138-6_dblbig.jpg",
 			description: 'sunt in culpa qui officia deserunt mollit anim id est laborum jajhajdshhyuhfnadfuasdbuashdfuihsdkjnjsdbhs ',
@@ -28,15 +27,14 @@ app.controller( "redditClone", function( $scope ) {
 			score: 9
 	},
 		{
-			title: 'more puppies',
+			title: 'More puppies',
 			author: 'Jack',
 			img: 'http://www.puppiesinflorida.com/wp-content/uploads/2016/07/Puppies_for_sale_in_florida.jpg',
 			description: 'sunt in culpa qui officia deserunt mollit anim id est laborum jajhajdshhyuhfnadfuasdbuashdfuihsdkjnjsdbhs ',
-			date: 04 / 14 / 206,
+			date: 04 / 14 / 2015,
 			score: 10
 		}
 	 ];
-
 
 
 
@@ -57,7 +55,6 @@ app.controller( "redditClone", function( $scope ) {
 	}
 
 
-
 	$scope.addPost = function() {
 		var newPost = {};
 		newPost.title = $scope.clone.title;
@@ -75,21 +72,12 @@ app.controller( "redditClone", function( $scope ) {
 	$scope.addComment = function() {
 		var newComment = {};
 		newComment.comment = $scope.clone.comment;
+
 		$scope.comments.push( newComment );
 
-		console.log( $scope.clone.comment );
+		console.log( $scope.comment );
 		console.log( "working there too" );
 	}
-
-	// $scope.clone = {
-	// 	'title': '',
-	// 	'author': '',
-	// 	'img': '',
-	// 	'description': '',
-	// 	'comments': ''
-	// }
-
-	// $scope.originForm = angular.copy( $scope.clone );
 
 
 
