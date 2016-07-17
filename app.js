@@ -3,12 +3,10 @@ var app = angular.module( "clone", [ 'ngAnimate' ] );
 app.controller( "redditClone", function( $scope ) {
 	$scope.clone = {};
 	$scope.posts = [];
-	// $scope.sortReverse = false;
 	$scope.searchPost = '';
 	$scope.comments = [];
 	$scope.date = Date.now();
 	$scope.reverse = true;
-	// $scope.propertyName = "propertyName";
 	$scope.view = {};
 	$scope.view.enterCount = 0;
 	$scope.view.enterCount2 = 0;

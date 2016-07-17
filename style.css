@@ -40,3 +40,10 @@ a:link,a:hover, a:visited, a:active{
   color:green;
   font-size: 10px;
 }
+
+.img-responsive{
+  height: 400px;
+  width: auto;
+  padding: 20px;
+  justify-content: center;
+}

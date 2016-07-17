@@ -113,44 +113,54 @@
             <!-- display posts -->
             <div class="container">
                 <div class="jumbotron middle" ng-repeat="post in posts | orderBy:propertyName:reverse | filter:searchPost">
-                    <!-- show title -->
-                    <h3><div class="title"><span class="sortType">{{post.title}}</span></div></h3>
-                    <!-- show author -->
-                    <div><span class="sortType">Created by: {{post.author}}</span></div>
-                    <!-- show img -->
-                    <div><img ng-src="{{post.img}}"></div>
-                    <!-- show description -->
-                    <div><span>{{post.description}}</span>
-                        <div class="media-body" ng-model="view.enterCount">
-                            <p><i ng-click="view.enterCount = view.enterCount + 1" class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                <i ng-click="view.enterCount = view.enterCount - 1" class="fa fa-thumbs-down" aria-hidden="true"></i>
-                                <span ng-class="{'text-info': view.enterCount >0, 'text-danger': view.enterCount<0}"> {{view.enterCount}}</span></p>
+                    <div class="media">
+                        <div class="media-heading">
+                            <!-- show title -->
+                            <h3><div class="title "><span class="sortType">{{post.title}}</span></div></h3>
+                            <!-- show author -->
+                            <div><span class="sortType pull-right">Created by: {{post.author}}</span></div>
                         </div>
-                        <!-- display date -->
-                        <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{date | date:"fullDate"}}</h3>
-                    </div>
-                    <!-- new comment -->
+
+                        <!-- show img -->
+                        <div><img class="img-responsive media-object media-left" ng-src="{{post.img}}" alt=""></div>
 
 
-                    <div>
-                        <a><i class="fa fa-pencil" aria-hidden="true" ng-model="littleComment" ng-click="hideComment()"> Add Comments</i></a>
-                        <a>| <i class="fa fa-comment" aria-hidden="true"> {{view.enterCount2 }} Comments </i></a>
-                        <form name="commentsForm" class="newComment" ng-show="littleComment" novalidate>
-                            <label for="comment">Comments: </label>
-                            <input type="text" class="form-control" name="commentBy" id="commentBy" ng-model="clone.commentBy" placeholder="Comment By" required>
-                            <input type="text" class="form-control" name="comment" id="comment" ng-model="clone.comment" placeholder="comment" required>
-                            <button ng-click="addComment()" ng-class="view.enterCount2" type="submit"> Add comment</button>
-                        </form>
-                        <!-- display comments -->
-                        <div ng-repeat="comment in comments">
-                            <p class="comment"><span>Comment made by: {{comment.commentBy}}</span></p>
-                            <p class="comment"><span>Comment: {{comment.comment}}</span></p>
+                        <div class="media-body">
+                            <!-- show description -->
+                            <div><span>{{post.description}}</span>
+                                <div class="media-body" ng-model="view.enterCount">
+                                    <p><i ng-click="view.enterCount = view.enterCount + 1" class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                        <i ng-click="view.enterCount = view.enterCount - 1" class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                        <span ng-class="{'text-info': view.enterCount >0, 'text-danger': view.enterCount<0}"> {{view.enterCount}}</span></p>
+                                </div>
+                                <!-- display date -->
+                                <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{date | date:"fullDate"}}</h3>
+                            </div>
+                            <!-- new comment -->
+
+
+                            <div>
+                                <a><i class="fa fa-pencil" aria-hidden="true" ng-model="littleComment" ng-click="hideComment()"> Add Comments</i></a>
+                                <a>| <i class="fa fa-comment" aria-hidden="true"> {{view.enterCount2 }} Comments </i></a>
+                                <form name="commentsForm" class="newComment" ng-show="littleComment" novalidate>
+                                    <label for="comment">Comments: </label>
+                                    <input type="text" class="form-control" name="commentBy" id="commentBy" ng-model="clone.commentBy" placeholder="Comment By" required>
+                                    <input type="text" class="form-control" name="comment" id="comment" ng-model="clone.comment" placeholder="comment" required>
+                                    <button ng-click="addComment()" ng-class="view.enterCount2" type="submit"> Add comment</button>
+                                </form>
+                                <!-- display comments -->
+                                <div ng-repeat="comment in comments">
+                                    <p class="comment"><span>Comment made by: {{comment.commentBy}}</span></p>
+                                    <p class="comment"><span>Comment: {{comment.comment}}</span></p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
+
     </body>
 
 </html>
