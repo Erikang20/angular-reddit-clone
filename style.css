@@ -35,3 +35,8 @@ a:link,a:hover, a:visited, a:active{
 .fa-thumbs-down{
   color:red;
 }
+
+.comment{
+  color:green;
+  font-size: 10px;
+}

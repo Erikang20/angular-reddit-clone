@@ -50,6 +50,11 @@ app.controller( "redditClone", function( $scope ) {
 		$scope.showMe = !$scope.showMe;
 	};
 
+	$scope.hideComment = function() {
+		console.log( "cleaning comments" );
+		$scope.littleComment = !$scope.littleComment;
+	}
+
 
 	var reset = function() {
 		$scope.clone.title = null;

@@ -126,21 +126,19 @@
                     </div>
                     <!-- new comment -->
 
-                    <!-- <button class="btn btn-primary" ng-model="showMe" ng-click="$scope.showComment = !$scope.showComment;"> Add Comment</button> -->
 
                     <div>
-                        <form name="commentsForm" class="newComment" ng-if="showMe" novalidate>
-                            <a><i class="fa fa-pencil" aria-hidden="true"> Add Comments</i></a>
+                        <a><i class="fa fa-pencil" aria-hidden="true" ng-model="littleComment" ng-click="hideComment()"> Add Comments</i></a>
+                        <form name="commentsForm" class="newComment" ng-show="littleComment" novalidate>
                             <label for="comment">Comments: </label>
                             <input type="text" class="form-control" name="commentBy" id="commentBy" ng-model="clone.commentBy" placeholder="Comment By" required>
                             <input type="text" class="form-control" name="comment" id="comment" ng-model="clone.comment" placeholder="comment" required>
-
                             <button ng-click="addComment()" type="submit">Add comment</button>
                         </form>
                         <!-- display comments -->
                         <div ng-repeat="comment in comments">
-                            <p><span>{{comment.commentBy}}</span></p>
-                            <p><span>{{comment.comment}}</span></p>
+                            <p class="comment"><span>{{comment.commentBy}}</span></p>
+                            <p class="comment"><span>{{comment.comment}}</span></p>
                         </div>
                     </div>
 
