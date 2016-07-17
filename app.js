@@ -11,8 +11,14 @@ app.controller( "redditClone", function( $scope ) {
 	$scope.reverse = true;
 	$scope.view = {};
 	$scope.view.enterCount = 0;
-	$scope.view.enterCount2 = 0;
-	$scope.view.enterCount3 = 0;
+	$scope.post = {
+		title: '',
+		author: '',
+		img: '',
+		description: '',
+		date: '',
+
+	}
 
 
 
@@ -39,7 +45,7 @@ app.controller( "redditClone", function( $scope ) {
 
 
 	$scope.generate = function() {
-		console.log( $scope.showMe );
+		console.log( 'im here' );
 		$scope.showMe = !$scope.showMe;
 	};
 
