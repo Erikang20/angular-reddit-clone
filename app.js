@@ -11,6 +11,7 @@ app.controller( "redditClone", function( $scope ) {
 	$scope.reverse = true;
 	$scope.view = {};
 	$scope.view.enterCount = 0;
+	$scope.view.enterCount2 = 0;
 	$scope.clone.showComment = false;
 	$scope.post = {
 		title: '',
