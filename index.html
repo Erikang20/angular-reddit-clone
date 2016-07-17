@@ -125,25 +125,31 @@
                         <span>{{post.description}}</span>
 
                         <div class="media-body" ng-model="view.enterCount">
-                            <button ng-click="view.enterCount = view.enterCount + 1"><i class="fa fa-thumbs-up" aria-hidden="true"></i> {{view.enterCount}}</button>
-                            <button ng-click="view.enterCount2 = view.enterCount2 -1"><i class="fa fa-thumbs-down" aria-hidden="true"> {{view.enterCount2}}</i></button>
+                            <p><i ng-click="view.enterCount = view.enterCount + 1" class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                <i ng-click="view.enterCount = view.enterCount - 1" class="fa fa-thumbs-down" aria-hidden="true"></i><span> {{view.enterCount}}</span></p>
                         </div>
 
                         <h3><i class="fa fa-calendar" aria-hidden="true"></i> Created: {{date | date:"fullDate"}}</h3>
                         <a ng-click="view.enterCount3"><i class="fa fa-comment" aria-hidden="true"> {{view.enterCount3}} Comments </i></a>
-                        <a ng-click="addComment()"><i class="fa fa-pencil" aria-hidden="true"> Add Comments</i></a>
-
-                        <div ng-repeat="comment in comments">
-                            <label for="comment">Comments: </label>
-                            <input type="text" name="comment" ng-model="clone.comment" placeholder="comment" validate>
-                            <span ng-show="newComment">{{comment.comment}}</span>
-                            <button ng-click="addComment()">Save</button>
-                        </div>
-
                     </div>
+
+                    <form name="commentsForm" class="form-control" ng-if="showMe" ng-click="sortReverse=!sortReverse">
+                        <a ng-click="addComment()"><i class="fa fa-pencil" aria-hidden="true"> Add Comments</i></a>
+                        <label for="comment">Comments: </label>
+                        <input type="text" name="comment" ng-model="clone.comment" placeholder="comment" validate>
+                        <button ng-click="addComment()">Save</button>
+                    </form>
+
+                    <div ng-repeat="comment in comments">
+
+                        <p><span>{{comment.comment}}</span></p>
+                    </div>
+
                 </div>
 
             </div>
+
+        </div>
         </div>
     </body>
 

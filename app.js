@@ -51,7 +51,16 @@ app.controller( "redditClone", function( $scope ) {
 		$scope.clone.description = null;
 		$scope.clone.userForm = false;
 
+
 		console.log( "this is clean!" );
+	}
+
+	var cleanComm = function( comm ) {
+		$scope.clone.commentBy = null;
+		$scope.clone.comment = null;
+		$scope.clone.otherComment = false;
+		$scope.clone.showComment = false;
+
 	}
 
 
