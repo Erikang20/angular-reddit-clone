@@ -1,4 +1,4 @@
-var app = angular.module( "clone", [] );
+var app = angular.module( "clone", [ 'ngAnimate' ] );
 
 app.controller( "redditClone", function( $scope ) {
 	$scope.clone = {};
@@ -23,9 +23,7 @@ app.controller( "redditClone", function( $scope ) {
 	}
 
 
-
-
-	$scope.clone.post = [
+	$scope.posts = [
 		{
 			title: 'Puppies',
 			author: 'Taco',
