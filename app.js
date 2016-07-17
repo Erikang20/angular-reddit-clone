@@ -3,12 +3,12 @@ var app = angular.module( "clone", [ 'ngAnimate' ] );
 app.controller( "redditClone", function( $scope ) {
 	$scope.clone = {};
 	$scope.posts = [];
-	$scope.sortType = 'title';
-	$scope.sortReverse = false;
+	// $scope.sortReverse = false;
 	$scope.searchPost = '';
 	$scope.comments = [];
 	$scope.date = Date.now();
 	$scope.reverse = true;
+	// $scope.propertyName = "propertyName";
 	$scope.view = {};
 	$scope.view.enterCount = 0;
 	$scope.view.enterCount2 = 0;
@@ -101,10 +101,9 @@ app.controller( "redditClone", function( $scope ) {
 	}
 
 
-
 	$scope.sortBy = function() {
-		$scope.reverse = ( $scope.propertyName === propertyName ) ? !$scope.reverse : false;
-		$scope.propertyName = propertyName;
+		$scope.reverse = ( $scope.propertyName === $scope.clone.propertyName ) ? !$scope.reverse : false;
+		$scope.propertyName = $scope.clone.propertyName;
 	}
 
 
