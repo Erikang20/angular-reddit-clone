@@ -72,9 +72,9 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" ng-click="sortReverse=!sortReverse"></a>
-                                    <span ng-if="!sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-                                    <span ng-if="sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                                    <a href="#" ng-click="reverse=!reverse"></a>
+                                    <span ng-if="!reverse" class="glyphicon glyphicon-chevron-up"></span>
+                                    <span ng-if="reverse" class="glyphicon glyphicon-chevron-up"></span>
 
                                 </li>
                             </ul>
@@ -82,7 +82,6 @@
                     </div>
                 </nav>
             </header>
-
             <!-- new Post form -->
             <form name="userForm" ng-if="showMe" class="my-form" ng-hide="userForm.$submitted" novalidate>
 
@@ -112,7 +111,7 @@
 
             <!-- display posts -->
             <div class="container">
-                <div class="jumbotron middle" ng-repeat="post in posts | orderBy:propertyName:reverse | filter:searchPost">
+                <div class="jumbotron middle" ng-repeat="post in posts | orderBy:'title':reverse | filter:searchPost">
                     <div class="media">
                         <div class="media-heading">
                             <!-- show title -->
