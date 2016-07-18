@@ -28,7 +28,8 @@ app.controller( "redditClone", function( $scope ) {
 			img: "https://img.buzzfeed.com/buzzfeed-static/static/2015-02/19/10/campaign_images/webdr07/17-puppies-who-are-so-cute-they-will-make-you-mad-2-30501-1424359138-6_dblbig.jpg",
 			description: 'sunt in culpa qui officia deserunt mollit anim id est laborum jajhajdshhyuhfnadfuasdbuashdfuihsdkjnjsdbhs ',
 			date: 07 / 16 / 2016,
-			vote: 9
+			vote: 9,
+			comments: []
 	},
 		{
 			title: 'More puppies',
@@ -36,7 +37,8 @@ app.controller( "redditClone", function( $scope ) {
 			img: 'http://www.puppiesinflorida.com/wp-content/uploads/2016/07/Puppies_for_sale_in_florida.jpg',
 			description: 'sunt in culpa  sfbjhasfdhsdfjsak sfdsuhfisjfsmdfk sdfkshdfjmsdf s sifjismfkasndfjn kfiasjfdoiasdkfads qui officia deserunt mollit anim id est laborum jajhajdshhyuhfnadfuasdbuashdfuihsdkjnjsdbhs ',
 			date: 04 / 14 / 2015,
-			vote: 3
+			vote: 3,
+			comments: []
 		},
 		{
 			title: 'Friends',
@@ -44,7 +46,8 @@ app.controller( "redditClone", function( $scope ) {
 			img: 'https://s-media-cache-ak0.pinimg.com/236x/5e/82/e6/5e82e68b741b5a6384bb799cc8e03fe9.jpg',
 			description: 'hsbdhfgayfhausf ssfbsadfhausjfkas sfdbushfisadfams sfdbasfoaisf sunt in culpa qui officia deserunt mollit anim id est laborum ',
 			date: 05 / 14 / 2016,
-			vote: 10
+			vote: 10,
+			comments: []
     },
 
 		{
@@ -53,7 +56,8 @@ app.controller( "redditClone", function( $scope ) {
 			img: 'http://a.fastcompany.net/multisite_files/fastcompany/imagecache/slideshow_large/slideshow/2014/09/3036127-slide-s-2-feel-the-puppy-love-with-these-underwatercoreypromo.jpg',
 			description: 'more hsjhsdfasdfij asdfmasdkfnaskj dfnasdfnisad nkjasdnfjansdjfnsjfnasjdf sunt in culpa qui officia deserunt mollit anim id est laborum ',
 			date: 03 / 29 / 2014,
-			vote: 8
+			vote: 8,
+			comments: []
     }
 	 ];
 
@@ -95,6 +99,9 @@ app.controller( "redditClone", function( $scope ) {
 		newPost.author = $scope.clone.author;
 		newPost.img = $scope.clone.img;
 		newPost.description = $scope.clone.description;
+		newPost.comments = [];
+
+		$scope.generate();
 
 		$scope.posts.push( newPost );
 		console.log( $scope.posts );
@@ -103,12 +110,12 @@ app.controller( "redditClone", function( $scope ) {
 
 	}
 
-	$scope.addComment = function() {
+	$scope.addComment = function( post ) {
 		var newComment = {};
 		newComment.commentBy = $scope.clone.commentBy;
 		newComment.comment = $scope.clone.comment;
 
-		$scope.comments.push( newComment );
+		post.comments.push( newComment );
 
 		console.log( $scope.comment );
 		console.log( "working there too" );

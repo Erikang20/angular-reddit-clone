@@ -138,15 +138,15 @@
                             <!-- new comment -->
                             <div>
                                 <a><i class="fa fa-pencil" aria-hidden="true" ng-model="littleComment" ng-click="hideComment()"> Add Comments</i></a>
-                                <a>| <i class="fa fa-comment" aria-hidden="true"> {{view.enterCount2 }} Comments </i></a>
+                                <a>| <i class="fa fa-comment" aria-hidden="true"> {{ post.comments.length }} Comments </i></a>
                                 <form name="commentsForm" class="newComment" ng-show="littleComment" novalidate>
                                     <label for="comment">Comments: </label>
                                     <input type="text" class="form-control" name="commentBy" id="commentBy" ng-model="clone.commentBy" placeholder="Comment By" required>
                                     <input type="text" class="form-control" name="comment" id="comment" ng-model="clone.comment" placeholder="comment" required>
-                                    <button ng-click="addComment()" ng-class="view.enterCount2" type="submit"> Add comment</button>
+                                    <button ng-click="addComment(post)" ng-class="view.enterCount2" type="submit"> Add comment</button>
                                 </form>
                                 <!-- display comments -->
-                                <div ng-repeat="comment in comments">
+                                <div ng-repeat="comment in post.comments">
                                     <p class="comment"><span>Comment made by: {{comment.commentBy}}</span></p>
                                     <p class="comment"><span>Comment: {{comment.comment}}</span></p>
                                 </div>
